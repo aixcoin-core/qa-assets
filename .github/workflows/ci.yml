@@ -28,7 +28,7 @@ jobs:
         include:
           - name: 'fuzz'
             runner: 'ubuntu-latest'
-            # To catch potential timeouts early, this task must replicate the config from https://github.com/bitcoin/bitcoin/blob/master/.github/workflows/ci.yml
+            # To catch potential timeouts early, this task must replicate the config from https://github.com/aixcoin/aixcoin/blob/master/.github/workflows/ci.yml
             timeout-minutes: 240
             file-env: './ci/test/00_setup_env_native_fuzz.sh'
           - name: 'fuzz (msan)'
@@ -44,7 +44,7 @@ jobs:
       - name: Checkout Bitcoin Core
         uses: actions/checkout@v5
         with:
-          repository: bitcoin/bitcoin
+          repository: aixcoin/aixcoin
           fetch-depth: 1
 
       - name: Checkout
@@ -54,17 +54,17 @@ jobs:
           fetch-depth: 1
 
       - name: Clear unnecessary files on bloated GHA VM
-        uses: bitcoin/bitcoin/.github/actions/clear-files@master
+        uses: aixcoin/aixcoin/.github/actions/clear-files@master
 
       - name: Configure environment
-        uses: bitcoin/bitcoin/.github/actions/configure-environment@master
+        uses: aixcoin/aixcoin/.github/actions/configure-environment@master
 
       - name: Restore caches
         id: restore-cache
-        uses: bitcoin/bitcoin/.github/actions/restore-caches@master
+        uses: aixcoin/aixcoin/.github/actions/restore-caches@master
 
       - name: Configure Docker
-        uses: bitcoin/bitcoin/.github/actions/configure-docker@master
+        uses: aixcoin/aixcoin/.github/actions/configure-docker@master
         with:
           cache-provider: 'gha'
 
@@ -75,4 +75,4 @@ jobs:
           ./ci/test_run_all.sh
 
       - name: Save caches
-        uses: bitcoin/bitcoin/.github/actions/save-caches@master
+        uses: aixcoin/aixcoin/.github/actions/save-caches@master
