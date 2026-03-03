@@ -1,6 +1,6 @@
 # qa-assets
 
-Bitcoin Core related blobs used for quality assurance.
+Aixcoin Core related blobs used for quality assurance.
 
 ## Fuzz inputs
 
@@ -9,7 +9,7 @@ folder per target named the same as each target).
 
 ### Contributing inputs
 
-*For documentation on how to fuzz Bitcoin Core please see
+*For documentation on how to fuzz Aixcoin Core please see
 [fuzzing.md](https://github.com/aixcoin/aixcoin/blob/master/doc/fuzzing.md).*
 
 If you want to contribute fuzz inputs, please "merge" the inputs before
